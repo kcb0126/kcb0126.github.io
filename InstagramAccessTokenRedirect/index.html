@@ -5,8 +5,14 @@
 		function ready() {
 			var splitted = window.location.href.split("#");
 			if(splitted.length == 2) {
-				var access_token = splitted[1];
+				splitted = splitted[1].split("=");
+				if(splitted.length == 2) {
+					access_token = splitted[1];
 				document.getElementById("txtToken").value = access_token;
+				}
+				else {
+					window.alert("failed");
+				}
 			} else {
 				window.alert("failed");
 			}
